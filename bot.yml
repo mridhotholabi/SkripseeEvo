@@ -1,8 +1,9 @@
 schema: kata.ai/schema/kata-ml/1.0
 name: skripsee
 desc: Bot Description
-version: 0.0.1
+version: 0.0.2
 flows:
+    caritopik: $include(./flows/caritopik.yml)
     fallback: $include(./flows/fallback.yml)
 config:
     messages: $include(./messages.yml)
@@ -13,3 +14,4 @@ methods:
         code: 'function confidenceLevel(message, context, data, options, config) { if (message.content === "hi") return 1; return 0; }'
         entry: confidenceLevel
 id: stdqpk
+tag: null
