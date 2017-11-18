@@ -11,7 +11,7 @@ intents:
     condition: payload.tipe == 'topik'
   reenter:
     type: command
-    condition: payload.type == 'pizza'
+    condition: content == "reenter"
 states:
   init:
     initial: true

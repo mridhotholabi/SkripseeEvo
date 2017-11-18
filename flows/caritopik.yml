@@ -9,6 +9,7 @@ intents:
   reenter:
     type: command
     condition: content == 'reenter'
+
 states:
   init:
     initial: true
@@ -21,8 +22,7 @@ states:
         condition: "context.cariCount >= 1"
     float:
       fallback: true
-    # Specify mapping or method to be executed when transition is started
-    # create context.greetCount or do increment
+
 actions:
   cariTerus:
     type: text
