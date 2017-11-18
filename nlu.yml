@@ -8,17 +8,10 @@ cariTopik:
                 - cari skripsi
                 - bingung topik
 
-daftarTopik:
+mahasiswaTETI:
     type: keyword
     options:
         keywords:
-            - daftar topik
-            - list topik
-            - topik tersedia
-            - topik apa saja
-            - daftar topiknya
-            - list topiknya
-            - topiknya apa saja
-            - topik apa aja
-            - topiknya apa aja
-            
+            - "42053"
+            - "42552"
+            - "42075"

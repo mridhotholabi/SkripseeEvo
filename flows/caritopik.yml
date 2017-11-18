@@ -16,20 +16,20 @@ states:
     float:
       fallback: true
     action:
-      - name: greetPerson
-        condition: "!context.greetCount"
-      - name: greetAgain
-        condition: "context.greetCount >= 1"
+      - name: cariSekali
+        condition: "!context.cariCount"
+      - name: cariTerus
+        condition: "context.cariCount >= 1"
     # Specify mapping or method to be executed when transition is started
     # create context.greetCount or do increment
     transit:
-      context.greetCount: "intent == 'greeting' ? (context.greetCount ||0) + 1 : 0"
+      context.cariCount: "intent == 'mulaiSkripsi' ? (context.cariCount ||0) + 1 : 0"
 actions:
-  greetAgain:
+  cariTerus:
     type: text
     options:
-      text: "Woi pesen dong"
-  greetPerson:
+      text: "Tolong masukkan NIM 5 digit Anda!"
+  cariSekali:
     type: text
     options:
-      text: "Halo, silahkan input 'Pesan dong' untuk pesan"
+      text: "Masukkan NIM 5 digit Anda"
