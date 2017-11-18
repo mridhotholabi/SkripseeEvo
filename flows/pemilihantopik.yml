@@ -1,0 +1,90 @@
+intents:
+  cekNIM5Digit:
+    initial: true
+    type: text
+    classifier:
+      nlu: mahasiswaTETI
+      match: NIMTETI
+  topikChosen:
+    initial: true
+    type: data
+    condition: payload.tipe == 'topik'
+  reenter:
+    type: command
+    condition: payload.type == 'pizza'
+states:
+  init:
+    initial: true
+    transitions:
+      daftarTopik:
+        condition: "intent == 'cekNIM5Digit'"
+      init:
+        fallback: true
+
+  tampilkanTopik:
+    action:
+      name: daftarTopik
+    transitions:
+      confirmTopik:
+        condition: "intent == 'topikChosen'"
+      tampilkanTopik:
+        fallback: true
+actions:
+  confirmTopik:
+    type: text
+    options:
+      text: "Apakah topik yang anda pilih adalah $(payload.topik)"
+  daftarTopik:
+    type: "template"
+    options:
+      type: "carousel"
+      items:
+        - title: 'Augmented Reality'
+          thumbnailImageUrl: http://http://www.toggletime.net/wp-content/uploads/2017/02/cE2PXhUe.jpg
+          actions:
+            - type: "postback"
+              label: 'Augmented Reality'
+              payload:
+                tipe: topik
+                topik: augmentedReality
+        - title: 'Virtual Reality'
+          thumbnailImageUrl: https://regmedia.co.uk/2017/04/24/shutterstock_virtual_reality.jpg?x=1200&y=794
+          actions:
+            - type: "postback"
+              label: 'Virtual Reality'
+              payload:
+                tipe: topik
+                topik: virtualReality
+        - title: 'Big Data'
+          thumbnailImageUrl: https://www.bernardmarr.com/img/blog/what-is-big-data.png
+          actions:
+            - type: "postback"
+              label: 'Big Data'
+              payload:
+                tipe: topik
+                topik: bigData
+        - title: 'Web Application'
+          thumbnailImageUrl: http://http://www.mirrorminds.in/images/web-applications.jpg
+          actions:
+            - type: "postback"
+              label: 'Web Application'
+              payload:
+                tipe: topik
+                topik: webApplication
+        - title: 'Game Development'
+          thumbnailImageUrl: https://damassets.autodesk.net/content/dam/autodesk/www/industries/media-entertainment/game-development/images/game-design-development-benefits-blazing-fast-performance-1280x720-nc.jpg
+          actions:
+            - type: "postback"
+              label: 'Game Development'
+              payload:
+                tipe: topik
+                topik: gameDevelopment
+        - title: 'Mobile Application'
+          thumbnailImageUrl: http://http://www.stelleninfotech.com/images/mobile-application.png
+          actions:
+            - type: "postback"
+              label: 'Mobile Application'
+              payload:
+                tipe: topik
+                topik: mobileApplication
+        

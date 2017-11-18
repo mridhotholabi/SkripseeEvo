@@ -7,11 +7,15 @@ cariTopik:
                 - cari judul
                 - cari skripsi
                 - bingung topik
+                - mencari topik
+                - mencari judul
+                - bingung dengan topik
 
 mahasiswaTETI:
     type: keyword
     options:
         keywords:
-            - "42053"
-            - "42552"
-            - "42075"
+            NIMTETI:
+                - "42053"
+                - "42552"
+                - "42075"

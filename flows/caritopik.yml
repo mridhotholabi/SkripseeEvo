@@ -12,18 +12,17 @@ intents:
 states:
   init:
     initial: true
-  greet:
-    float:
-      fallback: true
+    transit:
+      context.cariCount: "intent == 'mulaiSkripsi' ? (context.cariCount ||0) + 1 : 0"
     action:
       - name: cariSekali
         condition: "!context.cariCount"
       - name: cariTerus
         condition: "context.cariCount >= 1"
+    float:
+      fallback: true
     # Specify mapping or method to be executed when transition is started
     # create context.greetCount or do increment
-    transit:
-      context.cariCount: "intent == 'mulaiSkripsi' ? (context.cariCount ||0) + 1 : 0"
 actions:
   cariTerus:
     type: text
