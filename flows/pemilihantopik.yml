@@ -16,20 +16,26 @@ states:
   init:
     initial: true
     transitions:
-      daftarTopik:
+      tampilkanTopik:
         condition: "intent == 'cekNIM5Digit'"
       init:
         fallback: true
-
   tampilkanTopik:
     action:
-      name: daftarTopik
+      - name: daftarTopik
+      - name: askTopik
     transitions:
-      confirmTopik:
+      daftarJudul:
         condition: "intent == 'topikChosen'"
+        mapping:
+          context.topik: "payload.topik"
       tampilkanTopik:
         fallback: true
 actions:
+  askTopik:
+    type: text
+    options:
+      text: 'Topik mana yang sesuai dengan Anda?'
   confirmTopik:
     type: text
     options:
@@ -39,23 +45,26 @@ actions:
     options:
       type: "carousel"
       items:
-        - title: 'Augmented Reality'
-          thumbnailImageUrl: http://http://www.toggletime.net/wp-content/uploads/2017/02/cE2PXhUe.jpg
+        - text: 'AR'
+          title: 'Augmented Reality'
+          thumbnailImageUrl: https://readwrite.com/wp-content/uploads/Virtual-Realism-to-Real-Estate.jpg
           actions:
             - type: "postback"
-              label: 'Augmented Reality'
+              label: 'AR'
               payload:
                 tipe: topik
                 topik: augmentedReality
-        - title: 'Virtual Reality'
+        - text: 'VR'
+          title: 'Virtual Reality'
           thumbnailImageUrl: https://regmedia.co.uk/2017/04/24/shutterstock_virtual_reality.jpg?x=1200&y=794
           actions:
             - type: "postback"
-              label: 'Virtual Reality'
+              label: 'VR'
               payload:
                 tipe: topik
                 topik: virtualReality
-        - title: 'Big Data'
+        - text: Big Data
+          title: 'Big Data'
           thumbnailImageUrl: https://www.bernardmarr.com/img/blog/what-is-big-data.png
           actions:
             - type: "postback"
@@ -63,28 +72,22 @@ actions:
               payload:
                 tipe: topik
                 topik: bigData
-        - title: 'Web Application'
-          thumbnailImageUrl: http://http://www.mirrorminds.in/images/web-applications.jpg
+        - text: 'WebApp'
+          title: 'Web Application'
+          thumbnailImageUrl: https://qph.ec.quoracdn.net/main-qimg-d582a09a2e6d5c009df029741367ef6b
           actions:
             - type: "postback"
-              label: 'Web Application'
+              label: 'WebApp'
               payload:
                 tipe: topik
                 topik: webApplication
-        - title: 'Game Development'
+        - text: 'GameDev'
+          title: 'Game Development'
           thumbnailImageUrl: https://damassets.autodesk.net/content/dam/autodesk/www/industries/media-entertainment/game-development/images/game-design-development-benefits-blazing-fast-performance-1280x720-nc.jpg
           actions:
             - type: "postback"
-              label: 'Game Development'
+              label: 'GameDev'
               payload:
                 tipe: topik
                 topik: gameDevelopment
-        - title: 'Mobile Application'
-          thumbnailImageUrl: http://http://www.stelleninfotech.com/images/mobile-application.png
-          actions:
-            - type: "postback"
-              label: 'Mobile Application'
-              payload:
-                tipe: topik
-                topik: mobileApplication
         
