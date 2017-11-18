@@ -1,0 +1,24 @@
+cariTopik:
+    type: keyword
+    options:
+        keywords:
+            cariSkripsi:
+                - cari topik
+                - cari judul
+                - cari skripsi
+                - bingung topik
+
+daftarTopik:
+    type: keyword
+    options:
+        keywords:
+            - daftar topik
+            - list topik
+            - topik tersedia
+            - topik apa saja
+            - daftar topiknya
+            - list topiknya
+            - topiknya apa saja
+            - topik apa aja
+            - topiknya apa aja
+            
